@@ -1,0 +1,156 @@
+<div class="bg-white py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="text-base/7 font-semibold text-sky-500">Documentation</p>
+      <h1 class="mt-2 text-5xl font-semibold tracking-tight text-gray-900 sm:text-6xl">
+        Everything you need to build with our platform
+      </h1>
+      <p class="mt-6 text-lg font-medium text-gray-600 sm:text-xl/8">
+        Clear guides, API references, tutorials, and best practices to help you integrate, deploy, and scale with confidence.
+      </p>
+    </div>
+  </div>
+</div>
+
+<div class="bg-white pb-16 sm:pb-24">
+  <div class="mx-auto max-w-3xl px-6 lg:px-8">
+    <div class="relative">
+      <input
+        type="text"
+        placeholder="Search documentation..."
+        class="w-full rounded-xl border border-gray-300 px-4 py-3 text-base text-gray-900 shadow-sm focus:border-sky-500 focus:ring-2 focus:ring-sky-500"
+      />
+      <svg class="absolute right-4 top-3.5 h-5 w-5 text-gray-400" fill="none" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-4.35-4.35m0 0A7.5 7.5 0 1 0 5.65 5.65a7.5 7.5 0 0 0 10.6 10.6Z" />
+      </svg>
+    </div>
+  </div>
+</div>
+
+<div class="bg-gray-50 py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="mx-auto max-w-3xl text-center">
+      <p class="text-base/7 font-semibold text-sky-500">Get started</p>
+      <h2 class="mt-2 text-4xl font-semibold tracking-tight text-gray-900 sm:text-5xl">
+        Explore the documentation
+      </h2>
+    </div>
+
+    <div class="mt-16 grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
+
+      <!-- Card -->
+      <div class="rounded-3xl bg-white p-8 ring-1 ring-gray-200 hover:shadow-md transition">
+        <h3 class="text-lg font-semibold text-gray-900">Introduction</h3>
+        <p class="mt-4 text-sm/6 text-gray-600">
+          Learn how the platform works, key concepts, and the architecture behind the system.
+        </p>
+        <%= link_to "Read more →", "#",
+          class: "mt-6 inline-block text-sm font-semibold text-sky-500 hover:text-sky-600" %>
+      </div>
+
+      <!-- Card -->
+      <div class="rounded-3xl bg-white p-8 ring-1 ring-gray-200 hover:shadow-md transition">
+        <h3 class="text-lg font-semibold text-gray-900">Getting Started</h3>
+        <p class="mt-4 text-sm/6 text-gray-600">
+          Step‑by‑step guides to set up your account, configure your environment, and deploy your first project.
+        </p>
+        <%= link_to "Read more →", "#",
+          class: "mt-6 inline-block text-sm font-semibold text-sky-500 hover:text-sky-600" %>
+      </div>
+
+      <!-- Card -->
+      <div class="rounded-3xl bg-white p-8 ring-1 ring-gray-200 hover:shadow-md transition">
+        <h3 class="text-lg font-semibold text-gray-900">API Reference</h3>
+        <p class="mt-4 text-sm/6 text-gray-600">
+          Full API documentation including endpoints, parameters, authentication, and examples.
+        </p>
+        <%= link_to "Read more →", "#",
+          class: "mt-6 inline-block text-sm font-semibold text-sky-500 hover:text-sky-600" %>
+      </div>
+
+      <!-- Card -->
+      <div class="rounded-3xl bg-white p-8 ring-1 ring-gray-200 hover:shadow-md transition">
+        <h3 class="text-lg font-semibold text-gray-900">Guides & Tutorials</h3>
+        <p class="mt-4 text-sm/6 text-gray-600">
+          Practical tutorials to help you integrate features, build workflows, and automate processes.
+        </p>
+        <%= link_to "Read more →", "#",
+          class: "mt-6 inline-block text-sm font-semibold text-sky-500 hover:text-sky-600" %>
+      </div>
+
+      <!-- Card -->
+      <div class="rounded-3xl bg-white p-8 ring-1 ring-gray-200 hover:shadow-md transition">
+        <h3 class="text-lg font-semibold text-gray-900">Authentication</h3>
+        <p class="mt-4 text-sm/6 text-gray-600">
+          Learn how to implement OAuth, manage sessions, and secure your applications.
+        </p>
+        <%= link_to "Read more →", "#",
+          class: "mt-6 inline-block text-sm font-semibold text-sky-500 hover:text-sky-600" %>
+      </div>
+
+      <!-- Card -->
+      <div class="rounded-3xl bg-white p-8 ring-1 ring-gray-200 hover:shadow-md transition">
+        <h3 class="text-lg font-semibold text-gray-900">Deployment</h3>
+        <p class="mt-4 text-sm/6 text-gray-600">
+          Best practices for deploying to production, scaling, and maintaining uptime.
+        </p>
+        <%= link_to "Read more →", "#",
+          class: "mt-6 inline-block text-sm font-semibold text-sky-500 hover:text-sky-600" %>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="bg-white py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <h2 class="text-2xl font-semibold text-gray-900">Popular topics</h2>
+
+    <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <%= link_to "#",
+        class: "block rounded-xl border border-gray-200 bg-white px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50" do %>
+        Setting up OAuth
+      <% end %>
+
+      <%= link_to "#",
+        class: "block rounded-xl border border-gray-200 bg-white px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50" do %>
+        Creating your first website
+      <% end %>
+
+      <%= link_to "#",
+        class: "block rounded-xl border border-gray-200 bg-white px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50" do %>
+        Managing users & roles
+      <% end %>
+
+      <%= link_to "#",
+        class: "block rounded-xl border border-gray-200 bg-white px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50" do %>
+        Using the dashboard
+      <% end %>
+
+      <%= link_to "#",
+        class: "block rounded-xl border border-gray-200 bg-white px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50" do %>
+        Deploying to production
+      <% end %>
+
+      <%= link_to "#",
+        class: "block rounded-xl border border-gray-200 bg-white px-4 py-3 text-base font-medium text-gray-700 hover:bg-gray-50" do %>
+        API authentication
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+<div class="bg-sky-500 py-16 sm:py-24 lg:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-10">
+    <h2 class="text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:col-span-7">
+      Need help or have questions? We're here to support you.
+    </h2>
+
+    <div class="lg:col-span-5 lg:pt-2">
+      <%= link_to "Contact support", contact_path,
+        class: "inline-flex items-center justify-center rounded-md bg-white px-4 py-2.5 text-sm font-semibold text-sky-500 shadow-xs hover:bg-sky-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white" %>
+    </div>
+  </div>
+</div>

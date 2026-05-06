@@ -1,0 +1,21 @@
+<!-- app/views/receipt_mailer/send_receipt.html.erb -->
+<p>Hi <%= @user.name.presence || "there" %>,</p>
+
+<p>Thank you for your purchase. Here are your receipt details:</p>
+
+<ul>
+  <li>Plan: <%= @plan.name %></li>
+  <li>Amount: $<%= (@receipt.amount_cents / 100.0).round(2) %> <%= @receipt.currency.upcase %></li>
+  <li>Date: <%= @receipt.created_at.to_s(:long) %></li>
+</ul>
+
+<p>You can also view your receipt online:</p>
+
+<p>
+  <%= link_to "View receipt",
+              receipt_url(@receipt),
+              target: "_blank" %>
+</p>
+
+<p>Thank you,</p>
+<p>Your Company</p>

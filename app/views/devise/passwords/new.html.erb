@@ -1,0 +1,48 @@
+<div class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
+  <div class="sm:mx-auto sm:w-full sm:max-w-md">
+    <img src="https://tailwindcss.com/plus-assets/img/logos/mark.svg?color=sky&shade=600" alt="Your Company" class="mx-auto h-10 w-auto" />
+    <h2 class="mt-6 text-center text-2xl/9 font-bold tracking-tight text-gray-900">Forgot your password?</h2>
+  </div>
+
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
+  <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="bg-white px-6 py-14 shadow sm:rounded-lg sm:px-14">
+      <form action="#" method="POST" class="space-y-6">
+        <div>
+          <label for="email" class="block text-sm/6 font-medium text-gray-900"><%= f.label :email %></label>
+          <div class="mt-2">
+            <%= f.email_field :email, id: "email",  autofocus: true, autocomplete: "email", class: "block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-sky-500 sm:text-sm/6" %>
+          </div>
+        </div>
+
+        <div class="mt-6">
+          <button type="submit" class="flex w-full justify-center rounded-md bg-sky-500 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-sky-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"><%= f.submit "Send me password reset instructions" %></button>
+        </div>
+
+      </form>
+
+      <div>
+        <div class="mt-10 flex items-center gap-x-6">
+          <div class="w-full flex-1 border-t border-gray-200"></div>
+          <p class="text-nowrap text-sm/6 font-medium text-gray-900">Or continue with</p>
+          <div class="w-full flex-1 border-t border-gray-200"></div>
+        </div>
+
+        <div class="mt-6 grid grid-cols-1 gap-4">
+          <p class="mt-10 text-center text-sm/6 text-gray-500">
+            All ready a member?
+            <a href="" class="font-semibold text-sky-500 hover:text-sky-400"><%= link_to "Sign in", new_session_path(resource_name), class:"font-semibold text-sky-500 hover:text-sky-400" %></a>
+          </p>
+          <p class="mt-1 text-center text-sm/6 text-gray-500">
+            Not a member?
+            <a href="" class="font-semibold text-sky-500 hover:text-sky-400"><%= link_to "Start a 14 day free trial", new_registration_path(resource_name), class:"font-semibold text-sky-500 hover:text-sky-400" %></a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>
+
+
