@@ -10,7 +10,7 @@ class ReceiptsController < ApplicationController
         pdf = render_to_string(
           template: "receipts/show",
           layout: "pdf",
-          formats: [:html]
+          formats: [ :html ]
         )
 
         send_data pdf,
