@@ -36,7 +36,7 @@ Rails.application.routes.draw do
     post :terms_accept
 
     get  :review
-    post :create_session
+    post :create_session, on: :collection
 
     get  :success
   end

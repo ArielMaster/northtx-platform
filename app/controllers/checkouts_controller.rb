@@ -58,27 +58,25 @@ class CheckoutsController < ApplicationController
 
   def create_session
     ensure_checkout_data!
-    # @plan = @current_plan
-    @plan = @plan
+    @plan = @current_plan
 
     checkout_data = session[:checkout]
 
     stripe_session = Stripe::Checkout::Session.create(
       mode: "payment",
       customer_email: checkout_data["email"],
-      line_items: [ {
+      line_items: [{
         price_data: {
           currency: "usd",
           product_data: { name: @plan.name },
           unit_amount: @plan.price_cents
         },
         quantity: 1
-      } ],
+      }],
       success_url: success_checkouts_url + "?session_id={CHECKOUT_SESSION_ID}",
       cancel_url: review_checkouts_url
     )
 
-    # store minimal data keyed by stripe_session.id
     Rails.cache.write("checkout:#{stripe_session.id}", {
       plan_id: @plan.id,
       name: checkout_data["name"],
@@ -88,6 +86,39 @@ class CheckoutsController < ApplicationController
 
     redirect_to stripe_session.url, allow_other_host: true
   end
+
+  # def create_session
+  #   ensure_checkout_data!
+  #   # @plan = @current_plan
+  #   @plan = @plan
+
+  #   checkout_data = session[:checkout]
+
+  #   stripe_session = Stripe::Checkout::Session.create(
+  #     mode: "payment",
+  #     customer_email: checkout_data["email"],
+  #     line_items: [ {
+  #       price_data: {
+  #         currency: "usd",
+  #         product_data: { name: @plan.name },
+  #         unit_amount: @plan.price_cents
+  #       },
+  #       quantity: 1
+  #     } ],
+  #     success_url: success_checkouts_url + "?session_id={CHECKOUT_SESSION_ID}",
+  #     cancel_url: review_checkouts_url
+  #   )
+
+  #   # store minimal data keyed by stripe_session.id
+  #   Rails.cache.write("checkout:#{stripe_session.id}", {
+  #     plan_id: @plan.id,
+  #     name: checkout_data["name"],
+  #     email: checkout_data["email"],
+  #     phone: checkout_data["phone"]
+  #    }, expires_in: 2.hours)
+
+  #   redirect_to stripe_session.url, allow_other_host: true
+  # end
 
   def success
     @session_id = params[:session_id]
