@@ -58,7 +58,7 @@ class CheckoutsController < ApplicationController
 
   def create_session
     ensure_checkout_data!
-    @plan = @current_plan
+    @plan = @plan
 
     checkout_data = session[:checkout]
 
