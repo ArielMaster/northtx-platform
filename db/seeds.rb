@@ -8,7 +8,7 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-Plan.create!(name: "Core", price_cents: 19900, interval: "month", features: "- 1 project\n- Basic analytics\n- Email support")
-Plan.create!(name: "Growth", price_cents: 29900, interval: "month", features: "- 5 projects\n- Advanced analytics\n- Priority email support\n- Custom branding")
-Plan.create!(name: "Professional", price_cents: 39900, interval: "month", features: "- Unlimited projects\n- Team collaboration\n- API access\n- Priority support")
-Plan.create!(name: "Enterprise", price_cents: 79900, interval: "month", features: "- Unlimited everything\n- Dedicated account manager\n- SLA uptime guarantee\n- Custom integrations\n- Onboarding & training")
+Plan.create!(id: 1, name: "Core", price_cents: 19900, interval: "month", features: "- 1 project\n- Basic analytics\n- Email support")
+Plan.create!(id: 2, name: "Growth", price_cents: 29900, interval: "month", features: "- 5 projects\n- Advanced analytics\n- Priority email support\n- Custom branding")
+Plan.create!(id: 3, name: "Professional", price_cents: 39900, interval: "month", features: "- Unlimited projects\n- Team collaboration\n- API access\n- Priority support")
+Plan.create!(id: 4, name: "Enterprise", price_cents: 79900, interval: "month", features: "- Unlimited everything\n- Dedicated account manager\n- SLA uptime guarantee\n- Custom integrations\n- Onboarding & training")
