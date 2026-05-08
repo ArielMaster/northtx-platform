@@ -1,35 +1,41 @@
 <div class="bg-white py-24 sm:py-32">
   <div class="mx-auto max-w-3xl px-6 lg:px-8">
-    <h1 class="text-3xl font-semibold text-gray-900">Checkout - Your details</h1>
-    <p class="mt-2 text-gray-600">
-      Plan: <%= @plan.name %> - $<%= (@plan.price_cents / 100.0).round(2) %> / <%= @plan.interval %>
-    </p>
-
-    <%= form_with url: info_submit_checkouts_path, method: :post, class: "mt-8 space-y-6" do |f| %>
-      <div>
-        <label class="block text-sm font-medium text-gray-900">Full name</label>
-        <%= f.text_field :name,
-              required: true,
-              class: "mt-2 w-full rounded-md border border-gray-300 px-3 py-2" %>
+    <div class="divide-gray-200 overflow-hidden rounded-lg bg-white shadow">
+      <div class="px-4 py-5 sm:px-6">
+        <!-- Content goes here -->
+        <!-- We use less vertical padding on card headers on desktop than on body sections -->
+        <h1 class="text-center font-semibold text-lg text-gray-900">Checkout - Your details</h1>
+        <p class="text-center mt-2 text-sm/6 text-gray-600 font-semibold">
+          Plan: <span class="font-semibold text-sky-600"><%= @plan.name.upcase %></span> - <span class="font-semibold text-green-600">$<%= (@plan.price_cents / 100.0).round(2) %></span> / <%= @plan.interval %>
+        </p>
       </div>
+      <div class="px-4 py-5 sm:p-6">
+        <!-- Content goes here -->
+        <%= form_with url: info_submit_checkouts_path, method: :post, class: "mt-8 space-y-6" do |f| %>
+          <div>
+            <label class="block text-sm font-medium text-gray-900">Full name</label>
+            <%= f.text_field :name, required: true, class: "mt-1 w-full rounded-md border border-gray-300 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-sky-500 px-3 py-2" %>
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-900">Email</label>
+            <%= f.email_field :email, required: true, class: "mt-1 w-full rounded-md border border-gray-300 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-sky-500 px-3 py-2" %>
+          </div>
 
-      <div>
-        <label class="block text-sm font-medium text-gray-900">Email</label>
-        <%= f.email_field :email,
-              required: true,
-              class: "mt-2 w-full rounded-md border border-gray-300 px-3 py-2" %>
+          <div>
+            <label class="block text-sm font-medium text-gray-900">Phone</label>
+            <%= f.telephone_field :phone, class: "mt-1 w-full rounded-md border border-gray-300 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-sky-500 px-3 py-2" %>
+          </div>
       </div>
-
-      <div>
-        <label class="block text-sm font-medium text-gray-900">Phone</label>
-        <%= f.telephone_field :phone,
-              class: "mt-2 w-full rounded-md border border-gray-300 px-3 py-2" %>
+      <div class="px-4 py-4 sm:px-6">
+        <!-- Content goes here -->
+          <div>
+            <%= f.submit "Next", class: "mb-4 w-full rounded-md bg-sky-500 px-4 py-2.5 text-sm font-semibold text-white hover:bg-sky-400" %>
+          </div>
+        <!-- We use less vertical padding on card footers at all sizes than on headers or body sections -->
+        <% end %>
       </div>
-
-      <div>
-        <%= f.submit "Next",
-              class: "w-full rounded-md bg-sky-500 px-4 py-2.5 text-sm font-semibold text-white hover:bg-sky-400" %>
-      </div>
-    <% end %>
+    </div>
   </div>
 </div>
+
+

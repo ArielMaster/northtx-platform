@@ -1,37 +1,62 @@
 <div class="bg-white py-24 sm:py-32">
   <div class="mx-auto max-w-3xl px-6 lg:px-8">
-    <h1 class="text-3xl font-semibold text-gray-900">Review your order</h1>
+    <div class="divide-gray-200 overflow-hidden bg-white">
+      <div class="bg-sky-500 px-4 py-5 rounded-md border border-gray-400 sm:px-6">
+        <!-- Content goes here -->
+        <h1 class="text-center text-2xl font-semibold text-gray-100">Review your order</h1>
+        <!-- We use less vertical padding on card headers on desktop than on body sections -->
+      </div>
+      <div class="mt-6 rounded-md border border-gray-400 px-4 py-5 sm:p-6">
+        <!-- Content goes here -->
+        <dl class="space-y-4">
+        <div class="flex justify-between">
+          <dt class="font-semibold text-gray-500">Plan</dt>
+          <dd class="font-medium font-semibold text-sky-500"><%= @plan.name.upcase %></dd>
+        </div>
 
-    <div class="mt-6 space-y-4">
-      <p><strong>Plan:</strong> <%= @plan.name %></p>
-      <p><strong>Price:</strong> $<%= (@plan.price_cents / 100.0).round(2) %> / <%= @plan.interval %></p>
-      <p><strong>Name:</strong> <%= session.dig(:checkout, "name") %></p>
-      <p><strong>Email:</strong> <%= session.dig(:checkout, "email") %></p>
-      <p><strong>Phone:</strong> <%= session.dig(:checkout, "phone") %></p>
-      <dt class="font-medium">Terms Accepted</dt>
-        <dd>
-          <% if session[:checkout]["terms_accepted"] %>
-            <span class="text-green-600 font-semibold">Yes</span>
-          <% else %>
-            <span class="text-red-600 font-semibold">No</span>
-          <% end %>
-        </dd>
+        <div class="flex justify-between">
+          <dt class="font-semibold text-gray-500">Price</dt>
+          <dd class="font-medium font-semibold text-green-600">$<%= (@plan.price_cents / 100.0).round(2) %></span> / <%= @plan.interval %></dd>
+        </div>
+
+
+        <div class="flex justify-between">
+          <dt class="font-semibold text-gray-500">Name</dt>
+          <dd class="font-medium text-gray-900"><%= session.dig(:checkout, "name") %></dd>
+        </div>
+
+        <div class="flex justify-between">
+          <dt class="font-semibold text-gray-500">Email</dt>
+          <dd class="font-medium text-gray-900"> <%= session.dig(:checkout, "email") %></dd>
+        </div>
+
+        <div class="flex justify-between">
+          <dt class="font-semibold text-gray-500">Phone</dt>
+          <dd class="pl-2 text-sm/6 text-gray-900 truncade"><%= session.dig(:checkout, "phone") %></dd>
+        </div>
+        <div class="flex justify-between">
+          <dt class="font-semibold text-gray-500">Terms Accepted</dt>
+          <dd class="pl-2 text-sm/6 text-gray-900 truncade">
+            <% if session[:checkout]["terms_accepted"] %>
+                <span class="text-green-600 font-semibold">Yes</span>
+              <% else %>
+                <span class="text-red-600 font-semibold">No</span>
+              <% end %>
+          </dd>
+        </div>
+      </div>
+      <div class="mt-6 rounded-md border border-gray-400 px-4 py-5 sm:p-6">
+        <!-- Content goes here -->
+        <div class="flex justify-between">
+          <h3 class="font-medium text-sky-500 text-sm/6">Included Features</h3>
+          <pre class="mt-2 whitespace-pre-wrap text-sm text-gray-700"><span class="font-semibold text-sm/6"><%= @plan.features %></span></pre>
+        </div>
+      </div>
+        <!-- We use less vertical padding on card footers at all sizes than on headers or body sections -->
+        <%= form_with url: create_session_checkouts_path, method: :post, data: { turbo: false }, class: "mt-8" do |f| %>
+          <%= f.submit "Pay now", class: "w-full rounded-md bg-sky-500 px-4 py-2.5 text-sm font-semibold text-white hover:bg-sky-400" %>
+        <% end %>
+      </div>
     </div>
-    <div class="mt-4">
-      <h3 class="font-medium text-gray-900">Included Features</h3>
-      <pre class="mt-2 whitespace-pre-wrap text-sm text-gray-700"><i><%= @plan.features %></i></pre>
-    </div>
-
-
-
-    <%= form_with url: create_session_checkouts_path,
-              method: :post,
-              data: { turbo: false },
-              class: "mt-8" do |f| %>
-
-      <%= f.submit "Pay now",
-        class: "w-full rounded-md bg-sky-500 px-4 py-2.5 text-sm font-semibold text-white hover:bg-sky-400" %>
-    <% end %>
-
   </div>
 </div>
